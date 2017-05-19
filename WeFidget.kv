@@ -1,0 +1,92 @@
+#:import kivy kivy
+#:import win kivy.core.window
+
+ScreenManagement:
+    Welcome:
+    Menu:
+    Scraper:
+
+
+<Welcome>
+    name: 'main'
+
+    orientation: 'vertical'
+
+    GridLayout:
+        rows:5
+        cols:1
+        Label:
+            text: "WeFidget! Powered By Team WeFidget"
+        Label:
+            text: root.datestring
+        Label:
+            text: "We highly appreciate feedback from all users, PLEASE DO HELP US!!!"
+        Button:
+            text: 'Continue'
+            on_press: app.root.current = 'menu'
+
+
+<Menu>
+    name: 'menu'
+
+    orientation: 'vertical'
+
+    GridLayout:
+        rows: 2
+        cols: 1
+
+        Label:
+            size_hint_y: None
+            size_hint_x: 0.5
+            text_size: self.width, None
+            height: self.texture_size[1]
+            text: 'Choose an option from below'
+
+        GridLayout:
+            rows: 3
+            cols: 4
+
+            Button:
+                text: 'Settings'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Daily Stress Report'
+                on_press: app.root.current = 'scraper'
+            Button:
+                text: 'Steps Count'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Update'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Fidget Count'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Battery Status'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Find WeFidget'
+                on_press: app.root.current = 'menu'
+            Button:
+                text: 'Quit'
+                on_press: app.root.current = 'main'
+
+
+<Scraper>
+    name: 'scraper'
+
+    orientation: 'vertical'
+
+    GridLayout:
+        rows: 3
+        cols: 1
+        Image:
+            source: 'test.png'
+            allow_stretch: True
+
+
+        Label:
+            text: root.data
+        Button:
+            text: 'Return to Menu'
+            on_press: app.root.current = 'menu'
